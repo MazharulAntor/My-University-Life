@@ -5,7 +5,7 @@ using UnityEngine;
 public class SitOnBus : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enterBusButton;
+    private GameObject enterBusPanel;
     [SerializeField]
     private Transform busSeatTracker;
     [SerializeField]
@@ -23,23 +23,24 @@ public class SitOnBus : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        enterBusButton.SetActive(true);
+        enterBusPanel.SetActive(true);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        enterBusButton.SetActive(false);
-    }
-
-    public void EnterBus()
-    {
-        if (BuyTicket.hasTicket)
+        if (BuyTicket.hasTicket && Input.GetKeyDown(KeyCode.F))
         {
-            BusMove.busShouldMove=true;
+            BusMove.busShouldMove = true;
             player.transform.parent = busSeatTracker.transform;
             player.transform.position = busSeatTracker.position;
             Debug.Log("Bus Seat taken!");
             player.GetComponent<PlayerMove>().enabled = false;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        enterBusPanel.SetActive(false);
+    }
+
 }

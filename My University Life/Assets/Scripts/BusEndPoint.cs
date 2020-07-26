@@ -22,6 +22,7 @@ public class BusEndPoint : MonoBehaviour
         {
             player.GetComponent<PlayerMove>().enabled = true;
             downFromBus = false;
+            BuyTicket.hasTicket = false;
         }
     }
 

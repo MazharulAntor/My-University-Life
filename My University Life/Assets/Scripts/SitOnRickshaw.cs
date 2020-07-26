@@ -8,7 +8,6 @@ public class SitOnRickshaw : MonoBehaviour
     private Transform rickshawSeatTracker;
     [SerializeField]
     private GameObject callRickshawPanel;
-    private bool controlPressed = false;
     [SerializeField]
     private GameObject player;
     [SerializeField]
@@ -17,6 +16,23 @@ public class SitOnRickshaw : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         callRickshawPanel.SetActive(true);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Transaction.amount >= 10)
+            {
+                callRickshawPanel.SetActive(false);
+                rickshaw.SetActive(true);
+                RickshawMove.rickshawShouldMove = true;
+                player.transform.parent = rickshawSeatTracker.transform;
+                player.transform.position = rickshawSeatTracker.position;
+                Debug.Log("Seat taken!");
+                player.GetComponent<PlayerMove>().enabled = false;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -31,35 +47,7 @@ public class SitOnRickshaw : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            if (controlPressed)
-            {
-                Time.timeScale =1f;
-                controlPressed = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            else
-            {
-                Time.timeScale = 0f;
-                controlPressed = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-        }
+        
     }
 
-    public void TakeSeatOnRickshaw()
-    {
-        if (Transaction.amount >= 10)
-        {
-            callRickshawPanel.SetActive(false);
-            rickshaw.SetActive(true);
-            RickshawMove.rickshawShouldMove = true;
-            player.transform.parent = rickshawSeatTracker.transform;
-            player.transform.position = rickshawSeatTracker.position;
-            Debug.Log("Seat taken!");
-            player.GetComponent<PlayerMove>().enabled = false;
-        }
-
-    }
 }
