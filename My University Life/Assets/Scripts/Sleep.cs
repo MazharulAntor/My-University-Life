@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Sleep : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool onceClick = true;
+
     void Start()
     {
         
@@ -20,11 +21,19 @@ public class Sleep : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && onceClick)
             {
                 TimeDate.timer += 10800;
+                onceClick = false;
+                StartCoroutine(sleeapGap());
             }
-            
+
+        }
+
+        IEnumerator sleeapGap()
+        {
+            yield return new WaitForSeconds(5f);
+            onceClick = true;
         }
     }
 }

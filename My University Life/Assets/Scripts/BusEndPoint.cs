@@ -5,7 +5,7 @@ using UnityEngine;
 public class BusEndPoint : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
+    private GameObject player, playerCamera;
     [SerializeField]
     private Transform getDownFromBusPoint;
     private bool downFromBus = false;
@@ -21,6 +21,7 @@ public class BusEndPoint : MonoBehaviour
         if (downFromBus)
         {
             player.GetComponent<PlayerMove>().enabled = true;
+            playerCamera.GetComponent<PlayerLook>().enabled = true;
             downFromBus = false;
             BuyTicket.hasTicket = false;
         }
@@ -30,7 +31,22 @@ public class BusEndPoint : MonoBehaviour
     {
         if (other.gameObject.tag == "Bus")
         {
-            BusMove.busShouldMove = false;
+            if (BuyTicket.thikanaTicket)
+            {
+                ThikanaBusMove.busShouldMove = false;
+            }
+            else if (BuyTicket.savarTicket)
+            {
+                SavarBusMove.busShouldMove = false;
+            }
+            else if (BuyTicket.shuvecchaTicket)
+            {
+                ShuvecchaBusMove.busShouldMove = false;
+            }
+            else if (BuyTicket.shuvojatraTicket)
+            {
+                ShuvojatraBusMove.busShouldMove = false;
+            }
             player.transform.position = getDownFromBusPoint.position;
             player.transform.forward = getDownFromBusPoint.forward;
             player.transform.parent = null;

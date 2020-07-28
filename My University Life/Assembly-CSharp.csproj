@@ -76,9 +76,13 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\RickshawEndPoint.cs" />
     <Compile Include="Assets\Scripts\RickshawMove.cs" />
+    <Compile Include="Assets\Scripts\SavarBusMove.cs" />
+    <Compile Include="Assets\Scripts\ShuvecchaBusMove.cs" />
+    <Compile Include="Assets\Scripts\ShuvojatraBusMove.cs" />
     <Compile Include="Assets\Scripts\SitOnBus.cs" />
     <Compile Include="Assets\Scripts\SitOnRickshaw.cs" />
     <Compile Include="Assets\Scripts\Sleep.cs" />
+    <Compile Include="Assets\Scripts\ThikanaBusMove.cs" />
     <Compile Include="Assets\Scripts\TimeDate.cs" />
     <Compile Include="Assets\Scripts\Transaction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

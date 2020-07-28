@@ -17,7 +17,7 @@ public class BusMove : MonoBehaviour
     {
         if (busShouldMove)
         {
-            transform.Translate(-Vector3.forward * _speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
     }
 }

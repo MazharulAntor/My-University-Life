@@ -9,7 +9,7 @@ public class BuyTicket : MonoBehaviour
     private GameObject buyTicketPanel, ticketBoughtPanel;
     [SerializeField]
     private float fare;
-    public static bool hasTicket = false, first = false;
+    public static bool hasTicket = false, first = false, thikanaTicket = false, savarTicket = false, shuvecchaTicket = false, shuvojatraTicket = false;
     private bool panelOpen = false;
     [SerializeField]
     private Text ticketPriceText;
@@ -43,6 +43,22 @@ public class BuyTicket : MonoBehaviour
                 {
                     Debug.Log("Ticket Bought!");
                     Transaction.SubtractAmount(fare);
+                    if (fare == 20)
+                    {
+                        thikanaTicket = true;
+                    }
+                    else if (fare == 25)
+                    {
+                        savarTicket = true;
+                    }
+                    else if (fare == 30)
+                    {
+                        shuvecchaTicket = true;
+                    }
+                    else if (fare == 35)
+                    {
+                        shuvojatraTicket = true;
+                    }
                     hasTicket = true;
                     first = true;
                 }

@@ -9,7 +9,9 @@ public class SitOnBus : MonoBehaviour
     [SerializeField]
     private Transform busSeatTracker;
     [SerializeField]
-    private GameObject player;
+    private GameObject player, playerCamera;
+    [SerializeField]
+    private int counter;
     void Start()
     {
         
@@ -30,11 +32,46 @@ public class SitOnBus : MonoBehaviour
     {
         if (BuyTicket.hasTicket && Input.GetKeyDown(KeyCode.F))
         {
-            BusMove.busShouldMove = true;
-            player.transform.parent = busSeatTracker.transform;
-            player.transform.position = busSeatTracker.position;
-            Debug.Log("Bus Seat taken!");
-            player.GetComponent<PlayerMove>().enabled = false;
+            if(BuyTicket.thikanaTicket && counter == 1)
+            {
+                ThikanaBusMove.busShouldMove = true;
+                player.transform.parent = busSeatTracker.transform;
+                player.transform.position = busSeatTracker.position;
+                Debug.Log("Bus Seat taken!");
+                player.GetComponent<PlayerMove>().enabled = false;
+                playerCamera.GetComponent<PlayerLook>().enabled = false;
+                player.transform.forward = busSeatTracker.forward;
+            }
+            else if (BuyTicket.savarTicket && counter == 2)
+            {
+                SavarBusMove.busShouldMove = true;
+                player.transform.parent = busSeatTracker.transform;
+                player.transform.position = busSeatTracker.position;
+                Debug.Log("Bus Seat taken!");
+                player.GetComponent<PlayerMove>().enabled = false;
+                playerCamera.GetComponent<PlayerLook>().enabled = false;
+                player.transform.forward = busSeatTracker.forward;
+            }
+            else if (BuyTicket.shuvecchaTicket && counter == 3)
+            {
+                ShuvecchaBusMove.busShouldMove = true;
+                player.transform.parent = busSeatTracker.transform;
+                player.transform.position = busSeatTracker.position;
+                Debug.Log("Bus Seat taken!");
+                player.GetComponent<PlayerMove>().enabled = false;
+                playerCamera.GetComponent<PlayerLook>().enabled = false;
+                player.transform.forward = busSeatTracker.forward;
+            }
+            else if (BuyTicket.shuvojatraTicket && counter == 4)
+            {
+                ShuvojatraBusMove.busShouldMove = true;
+                player.transform.parent = busSeatTracker.transform;
+                player.transform.position = busSeatTracker.position;
+                Debug.Log("Bus Seat taken!");
+                player.GetComponent<PlayerMove>().enabled = false;
+                playerCamera.GetComponent<PlayerLook>().enabled = false;
+                player.transform.forward = busSeatTracker.forward;
+            }
         }
     }
 
