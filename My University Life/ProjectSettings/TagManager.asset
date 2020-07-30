@@ -8,6 +8,7 @@ TagManager:
   - Rickshaw
   - RickshawEndPointTracker
   - Bus
+  - Bus2
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,10 @@ public class BusEndPoint : MonoBehaviour
     [SerializeField]
     private Transform getDownFromBusPoint;
     private bool downFromBus = false;
+    [SerializeField]
+    private Transform thikanaBus, thikanaBusStation3;
+    private bool timeFinished = false, coRoutine = true;
+    public static bool touched = true;
 
     void Start()
     {
@@ -29,13 +33,18 @@ public class BusEndPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bus")
+        if (other.gameObject.tag == "Bus" && touched)
         {
-            if (BuyTicket.thikanaTicket)
-            {
+            //if (BuyTicket.thikanaTicket)
+            //{
                 ThikanaBusMove.busShouldMove = false;
-            }
-            else if (BuyTicket.savarTicket)
+                thikanaBus.position = thikanaBusStation3.position;
+                BusTimeRoutine.thirdStation = true;
+            touched=false;
+
+
+            //}
+            if (BuyTicket.savarTicket)
             {
                 SavarBusMove.busShouldMove = false;
             }

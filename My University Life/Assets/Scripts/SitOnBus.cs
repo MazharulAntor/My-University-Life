@@ -25,7 +25,10 @@ public class SitOnBus : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        enterBusPanel.SetActive(true);
+        if (other.gameObject.tag == "Player")
+        {
+            enterBusPanel.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,7 +37,7 @@ public class SitOnBus : MonoBehaviour
         {
             if(BuyTicket.thikanaTicket && counter == 1)
             {
-                ThikanaBusMove.busShouldMove = true;
+                //ThikanaBusMove.busShouldMove = true;
                 player.transform.parent = busSeatTracker.transform;
                 player.transform.position = busSeatTracker.position;
                 Debug.Log("Bus Seat taken!");
@@ -77,7 +80,10 @@ public class SitOnBus : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        enterBusPanel.SetActive(false);
+        if (other.gameObject.tag == "Player")
+        {
+            enterBusPanel.SetActive(false);
+        }
     }
 
 }

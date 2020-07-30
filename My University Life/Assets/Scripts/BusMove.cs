@@ -5,8 +5,9 @@ using UnityEngine;
 public class BusMove : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 3f;
-    public static bool busShouldMove = false;
+    private float _speed;
+    public static bool busShouldMove = true;
+    private bool sideChange = true;
     void Start()
     {
         
@@ -17,6 +18,11 @@ public class BusMove : MonoBehaviour
     {
         if (busShouldMove)
         {
+            if (sideChange)
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x - 5f, transform.localPosition.y, transform.localPosition.z);
+                sideChange = false;
+            }
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
     }

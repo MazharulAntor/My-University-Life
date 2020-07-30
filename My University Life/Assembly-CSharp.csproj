@@ -70,7 +70,13 @@
     <Compile Include="Assets\Barrier Pack\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Barrier Pack\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\Scripts\BusEndPoint.cs" />
+    <Compile Include="Assets\Scripts\BusFinalEndPoint.cs" />
+    <Compile Include="Assets\Scripts\BusFinalEndPointReturn.cs" />
+    <Compile Include="Assets\Scripts\BusInitialPoint.cs" />
     <Compile Include="Assets\Scripts\BusMove.cs" />
+    <Compile Include="Assets\Scripts\BusStartPoint.cs" />
+    <Compile Include="Assets\Scripts\BusTimeRoutine.cs" />
+    <Compile Include="Assets\Scripts\BusTimeRoutine2.cs" />
     <Compile Include="Assets\Scripts\BuyTicket.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
@@ -83,6 +89,7 @@
     <Compile Include="Assets\Scripts\SitOnRickshaw.cs" />
     <Compile Include="Assets\Scripts\Sleep.cs" />
     <Compile Include="Assets\Scripts\ThikanaBusMove.cs" />
+    <Compile Include="Assets\Scripts\ThikanaBusMove2.cs" />
     <Compile Include="Assets\Scripts\TimeDate.cs" />
     <Compile Include="Assets\Scripts\Transaction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
