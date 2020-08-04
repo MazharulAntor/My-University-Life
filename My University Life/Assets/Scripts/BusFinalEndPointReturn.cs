@@ -5,7 +5,7 @@ using UnityEngine;
 public class BusFinalEndPointReturn : MonoBehaviour
 {
     [SerializeField]
-    private GameObject thikanaBusStation1, thikanaBus, thikanaBus2;
+    private GameObject thikanaBusStation1, thikanaBus1, thikanaBus2;
     void Start()
     {
 
@@ -19,20 +19,31 @@ public class BusFinalEndPointReturn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bus")
+        if (other.gameObject.tag == "ThikanaBus1")
         {
-            thikanaBus.transform.position = thikanaBusStation1.transform.position;
-            ThikanaBusMove.busShouldMove = false;
-            thikanaBus.transform.forward = thikanaBusStation1.transform.forward;
-            BusInitialPoint.busQueueReturn.Add(1);
+            thikanaBus1.transform.position = thikanaBusStation1.transform.position;
+            ThikanaBusMove1.busShouldMove = false;
+            thikanaBus1.transform.forward = thikanaBusStation1.transform.forward;
+            ThikanaBusMove1.returnWay = false;
+            ThikanaBusTimeRoutine1.firstStation = true;
+
+            BusEndPoint.touched1 = true;
+            BusStartPoint.touched1 = true;
+
+            ThikanaBusMove1.bustype = "up";
         }
-        if (other.gameObject.tag == "Bus2")
+        if (other.gameObject.tag == "ThikanaBus2")
         {
-            ThikanaBusMove2.returnFinalEndPointTouched = true;
             thikanaBus2.transform.position = thikanaBusStation1.transform.position;
             ThikanaBusMove2.busShouldMove = false;
             thikanaBus2.transform.forward = thikanaBusStation1.transform.forward;
-            BusInitialPoint.busQueueReturn.Add(2);
+            ThikanaBusMove2.returnWay = false;
+            ThikanaBusTimeRoutine2.firstStation = true;
+
+            BusEndPoint.touched2 = true;
+            BusStartPoint.touched2 = true;
+
+            ThikanaBusMove2.bustype = "up";
         }
     }
 }

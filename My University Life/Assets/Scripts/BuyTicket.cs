@@ -13,6 +13,9 @@ public class BuyTicket : MonoBehaviour
     private bool panelOpen = false;
     [SerializeField]
     private Text ticketPriceText;
+    public static string ticketType;
+    [SerializeField]
+    private string ticketTypeUpDown;
     void Start()
     {
         
@@ -61,6 +64,7 @@ public class BuyTicket : MonoBehaviour
                     }
                     hasTicket = true;
                     first = true;
+                    ticketType = ticketTypeUpDown;
                 }
                 else if(!first)
                 {

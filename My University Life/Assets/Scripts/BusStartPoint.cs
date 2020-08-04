@@ -7,9 +7,8 @@ public class BusStartPoint : MonoBehaviour
     [SerializeField]
     private Transform thikanaBusStation2;
     [SerializeField]
-    private GameObject thikanaBus, thikanaBus2;
-    private bool touched = true, touched2 = true;
-    public static bool bus1Left = false;
+    private GameObject thikanaBus1, thikanaBus2;
+    public static bool touched1 = true, touched2 = true;
     void Start()
     {
         
@@ -23,24 +22,26 @@ public class BusStartPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bus" && touched)
+        if (other.gameObject.tag == "ThikanaBus1" && touched1)
         {
-            touched = false;
-            ThikanaBusMove.busShouldMove = false;
-            ThikanaBusMove.sideChange = false;
-            BusTimeRoutine.secondStation = true;
-            thikanaBus.transform.position = thikanaBusStation2.position;
-            bus1Left = true;
-            ThikanaBusMove2.busShouldMove = true;
-            ThikanaBusMove2.sideChange = true;
+            touched1 = false;
+            ThikanaBusMove1.busShouldMove = false;
+            ThikanaBusMove1.sideChange = false;
+            ThikanaBusTimeRoutine1.secondStation = true;
+            thikanaBus1.transform.position = thikanaBusStation2.position;
+            SitOnBus.thikanaPassengersPoint1 = true;
+            Debug.Log(ThikanaBusMove1.bustype);
         }
-        else if(other.gameObject.tag == "Bus2" && touched2)
+        if (other.gameObject.tag == "ThikanaBus2" && touched2)
         {
             touched2 = false;
             ThikanaBusMove2.busShouldMove = false;
             ThikanaBusMove2.sideChange = false;
-            BusTimeRoutine2.secondStation = true;
+            ThikanaBusTimeRoutine2.secondStation = true;
+            Debug.Log("OK");
             thikanaBus2.transform.position = thikanaBusStation2.position;
+            SitOnBus.thikanaPassengersPoint2 = true;
+            Debug.Log(ThikanaBusMove2.bustype);
         }
     }
 }

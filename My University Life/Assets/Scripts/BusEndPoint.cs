@@ -10,9 +10,8 @@ public class BusEndPoint : MonoBehaviour
     private Transform getDownFromBusPoint;
     private bool downFromBus = false;
     [SerializeField]
-    private Transform thikanaBus, thikanaBusStation3;
-    private bool timeFinished = false, coRoutine = true;
-    public static bool touched = true;
+    private Transform thikanaBus1, thikanaBus2, thikanaBusStation3;
+    public static bool touched1 = true, touched2 = true;
 
     void Start()
     {
@@ -33,33 +32,39 @@ public class BusEndPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bus" && touched)
+        if (other.gameObject.tag == "ThikanaBus1" && touched1)
         {
-            //if (BuyTicket.thikanaTicket)
-            //{
-                ThikanaBusMove.busShouldMove = false;
-                thikanaBus.position = thikanaBusStation3.position;
-                BusTimeRoutine.thirdStation = true;
-            touched=false;
-
-
-            //}
-            if (BuyTicket.savarTicket)
+            ThikanaBusMove1.busShouldMove = false;
+            thikanaBus1.position = thikanaBusStation3.position;
+            ThikanaBusTimeRoutine1.thirdStation = true;
+            touched1 = false;
+            if (BuyTicket.thikanaTicket && SitOnBus.thikanaSit1)
             {
-                SavarBusMove.busShouldMove = false;
+                PassengerGetDownFromBus();
+                BuyTicket.thikanaTicket = false;
             }
-            else if (BuyTicket.shuvecchaTicket)
-            {
-                ShuvecchaBusMove.busShouldMove = false;
-            }
-            else if (BuyTicket.shuvojatraTicket)
-            {
-                ShuvojatraBusMove.busShouldMove = false;
-            }
-            player.transform.position = getDownFromBusPoint.position;
-            player.transform.forward = getDownFromBusPoint.forward;
-            player.transform.parent = null;
-            downFromBus = true;
+            SitOnBus.thikanaPassengersPoint1 = false;
         }
+        if(other.gameObject.tag == "ThikanaBus2" && touched2)
+        {
+            ThikanaBusMove2.busShouldMove = false;
+            thikanaBus2.position = thikanaBusStation3.position;
+            ThikanaBusTimeRoutine2.thirdStation = true;
+            touched2 = false;
+            if(BuyTicket.thikanaTicket && SitOnBus.thikanaSit2)
+            {
+                PassengerGetDownFromBus();
+                BuyTicket.thikanaTicket = false;
+            }
+            SitOnBus.thikanaPassengersPoint2 = false;
+        }
+    }
+
+    private void PassengerGetDownFromBus()
+    {
+        player.transform.position = getDownFromBusPoint.position;
+        player.transform.forward = getDownFromBusPoint.forward;
+        player.transform.parent = null;
+        downFromBus = true;
     }
 }

@@ -7,8 +7,8 @@ public class TimeDate : MonoBehaviour
 {
     public static float timer;
     private float seconds;
-    private float minutes;
-    private float hours;
+    public static float minutes;
+    public static float hours;
     [SerializeField]
     private Text timeShower;
     [SerializeField]
