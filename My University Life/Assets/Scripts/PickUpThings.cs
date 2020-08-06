@@ -6,8 +6,8 @@ public class PickUpThings : MonoBehaviour
 {
     public static List<string> items = new List<string>();
     [SerializeField]
-    private GameObject itemsPanel, pickedText;
-    public static bool pickedID = false;
+    private GameObject itemsPanel, pickedIDText, pickedBagText, id, bag;
+    public static bool pickedID, pickedBag = false;
 
     void Start()
     {
@@ -17,7 +17,17 @@ public class PickUpThings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!pickedID)
+        {
+            pickedIDText.SetActive(false);
+            id.SetActive(true);
+        }
+
+        if (!pickedBag)
+        {
+            pickedBagText.SetActive(false);
+            bag.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,8 +47,19 @@ public class PickUpThings : MonoBehaviour
                 if (!pickedID)
                 {
                     items.Add("ID");
-                    pickedText.SetActive(true);
+                    pickedIDText.SetActive(true);
                     pickedID = true;
+                    id.SetActive(false);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                if (!pickedBag)
+                {
+                    items.Add("Bag");
+                    pickedBagText.SetActive(true);
+                    pickedBag = true;
+                    bag.SetActive(false);
                 }
             }
         }

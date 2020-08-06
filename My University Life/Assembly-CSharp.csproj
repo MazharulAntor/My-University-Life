@@ -69,6 +69,9 @@
     <Compile Include="Assets\Barrier Pack\Scripts\ContrastStretch.cs" />
     <Compile Include="Assets\Barrier Pack\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Barrier Pack\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
+    <Compile Include="Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
+    <Compile Include="Assets\Lamp Assets\Scripts\Lamp.cs" />
     <Compile Include="Assets\Scripts\BusEndPoint.cs" />
     <Compile Include="Assets\Scripts\BusFinalEndPoint.cs" />
     <Compile Include="Assets\Scripts\BusFinalEndPointReturn.cs" />
