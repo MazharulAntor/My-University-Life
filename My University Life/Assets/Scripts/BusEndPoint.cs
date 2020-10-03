@@ -41,6 +41,7 @@ public class BusEndPoint : MonoBehaviour
             if (BuyTicket.thikanaTicket && SitOnBus.thikanaSit1)
             {
                 PassengerGetDownFromBus();
+                SitOnBus.thikanaSit1 = false;
                 BuyTicket.thikanaTicket = false;
             }
             SitOnBus.thikanaPassengersPoint1 = false;
@@ -54,6 +55,7 @@ public class BusEndPoint : MonoBehaviour
             if(BuyTicket.thikanaTicket && SitOnBus.thikanaSit2)
             {
                 PassengerGetDownFromBus();
+                SitOnBus.thikanaSit2 = false;
                 BuyTicket.thikanaTicket = false;
             }
             SitOnBus.thikanaPassengersPoint2 = false;

@@ -10,23 +10,30 @@ public class PlayerLook : MonoBehaviour
     private float mouseSensitivity;
     [SerializeField]
     private Transform playerBody;
+    bool escapeClicked = false;
 
     private float xAxisClamp;
 
     private void Awake()
     {
-        LockCursor();
         xAxisClamp = 0.0f;
-    }
-
-    private void LockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
         CameraRotation();
+        if (Input.GetKeyDown(KeyCode.Escape) && !escapeClicked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            mouseSensitivity = 0f;
+            escapeClicked = true;
+        }
+        if(Input.GetKeyDown(KeyCode.LeftControl) && escapeClicked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            mouseSensitivity = 150f;
+            escapeClicked = false;
+        }
     }
 
     private void CameraRotation()

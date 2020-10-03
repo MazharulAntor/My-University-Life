@@ -77,7 +77,13 @@
     <Compile Include="Assets\Scripts\BusFinalEndPointReturn.cs" />
     <Compile Include="Assets\Scripts\BusStartPoint.cs" />
     <Compile Include="Assets\Scripts\BuyTicket.cs" />
+    <Compile Include="Assets\Scripts\CloseToiletDoor.cs" />
+    <Compile Include="Assets\Scripts\Courses.cs" />
+    <Compile Include="Assets\Scripts\DBConnection.cs" />
+    <Compile Include="Assets\Scripts\DepartmentSelectionDropdown.cs" />
+    <Compile Include="Assets\Scripts\Information.cs" />
     <Compile Include="Assets\Scripts\OpenGate.cs" />
+    <Compile Include="Assets\Scripts\OpenToiletDoor.cs" />
     <Compile Include="Assets\Scripts\PickUpThings.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
@@ -89,12 +95,14 @@
     <Compile Include="Assets\Scripts\SitOnBus.cs" />
     <Compile Include="Assets\Scripts\SitOnRickshaw.cs" />
     <Compile Include="Assets\Scripts\Sleep.cs" />
+    <Compile Include="Assets\Scripts\StudyArea.cs" />
     <Compile Include="Assets\Scripts\ThikanaBusMove1.cs" />
     <Compile Include="Assets\Scripts\ThikanaBusMove2.cs" />
     <Compile Include="Assets\Scripts\ThikanaBusTimeRoutine1.cs" />
     <Compile Include="Assets\Scripts\ThikanaBusTimeRoutine2.cs" />
     <Compile Include="Assets\Scripts\TimeDate.cs" />
     <Compile Include="Assets\Scripts\Transaction.cs" />
+    <Compile Include="Assets\Scripts\VarsitySelectionDropDown.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -369,6 +377,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>D:/Unity/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>D:/Final Project/My-University-Life/My University Life/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Unity/2019.3.0f6/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

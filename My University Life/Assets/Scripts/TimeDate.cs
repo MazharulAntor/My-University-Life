@@ -20,6 +20,7 @@ public class TimeDate : MonoBehaviour
     private float day;
     private int dayTrack;
     private string dayName;
+    public static bool stopTime = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,42 +35,43 @@ public class TimeDate : MonoBehaviour
 
     private void TimeShower()
     {
-        timer += Time.deltaTime * timeSpeed;
-        seconds = (int)(timer % 60);
-        minutes = (int)(timer / 60) % 60;
-        hours = (int)(timer / 3600) % 24;
-        day = (int)(timer / 86400) % 30;
-
-        timeShower.text = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
-
-        dayCountShower.text = "Day " + (day + 1);
-        dayTrack = (int)(day + 1) % 7;
-        switch (dayTrack)
+        if (!stopTime)
         {
-            case 1:
-                dayName = "Saturday";
-                break;
-            case 2:
-                dayName = "Sunday";
-                break;
-            case 3:
-                dayName = "Monday";
-                break;
-            case 4:
-                dayName = "Tuesday";
-                break;
-            case 5:
-                dayName = "Wednesday";
-                break;
-            case 6:
-                dayName = "Thursday";
-                break;
-            case 0:
-                dayName = "Friday";
-                break;
-        }
-        dayShower.text = dayName;
-        
+            timer += Time.deltaTime * timeSpeed;
+            seconds = (int)(timer % 60);
+            minutes = (int)(timer / 60) % 60;
+            hours = (int)(timer / 3600) % 24;
+            day = (int)(timer / 86400) % 30;
 
+            timeShower.text = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
+
+            dayCountShower.text = "Day " + (day + 1);
+            dayTrack = (int)(day + 1) % 7;
+            switch (dayTrack)
+            {
+                case 1:
+                    dayName = "Saturday";
+                    break;
+                case 2:
+                    dayName = "Sunday";
+                    break;
+                case 3:
+                    dayName = "Monday";
+                    break;
+                case 4:
+                    dayName = "Tuesday";
+                    break;
+                case 5:
+                    dayName = "Wednesday";
+                    break;
+                case 6:
+                    dayName = "Thursday";
+                    break;
+                case 0:
+                    dayName = "Friday";
+                    break;
+            }
+            dayShower.text = dayName;
+        }
     }
 }

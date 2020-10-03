@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sleep : MonoBehaviour
 {
     private bool onceClick = true;
     [SerializeField]
     GameObject sleepPanel;
+    [SerializeField]
+    GameObject blackSleepImage;
 
     void Start()
     {
@@ -30,7 +33,8 @@ public class Sleep : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && onceClick)
             {
-                TimeDate.timer += 10800;
+                TimeDate.timer += 21600;
+                TimeDate.stopTime = true;
                 onceClick = false;
                 PickUpThings.pickedID = false;
                 PickUpThings.pickedBag = false;
@@ -43,14 +47,17 @@ public class Sleep : MonoBehaviour
                     PickUpThings.items.Remove("Bag");
                 }
 
-                StartCoroutine(sleeapGap());
+                StartCoroutine(sleepGap());
             }
         }
     }
 
-    IEnumerator sleeapGap()
+    IEnumerator sleepGap()
     {
+        blackSleepImage.SetActive(true);
         yield return new WaitForSeconds(5f);
+        blackSleepImage.SetActive(false);
+        TimeDate.stopTime = false;
         onceClick = true;
     }
 
